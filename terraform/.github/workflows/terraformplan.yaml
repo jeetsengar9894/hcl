@@ -1,0 +1,23 @@
+name: terraform plan
+on:
+  pull-request:
+
+env:
+  TF_CLOUD_ORGANIZATION:
+  TF_API_TOKEN:
+  CONFIG_DIRECTORY: "./"
+
+job:
+  terraform:
+    if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
+    name: "Terraform Plan"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+  steps:
+  - name: checkout
+    uses: actions/checkout@v3
+    
+      
+    
